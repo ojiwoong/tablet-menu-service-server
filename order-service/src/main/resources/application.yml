@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: order-service
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ENC(vgaoBl0xU2G6CfYH06B+n2UGg30r0ia30OqOxSki9qSeU4grm901Lye33LIwdjf4wVFPY4DsNDJ1m4W3ano8xlzbLC/Pi77KdsHTwtnXMgfmBPUTvw2i0dCoPP5onODN)
+    username: ENC(KTTXjgr93ZO9+/maEFPLHA==)
+    password: ENC(YsJ5erjgWqwERU4lTzBaZ2e9xM7vnyLy)
 
 eureka:
   instance:
@@ -15,8 +20,4 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
-datasource:
-  driver-class-name: org.mariadb.jdbc.Driver
-  url:
-  username:
-  password:
+

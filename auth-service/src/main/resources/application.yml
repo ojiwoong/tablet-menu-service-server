@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: auth-service
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ENC(+GawgltfrJwbnZajyrU7w8ywRHrdnDvVrLF7cT6hzhf5Kr9J7uiqrsuIlL4fcNh5AMJA7jCXTX7PLfKjhDCBjVmxH6l5hyxHhR/4/mHC+RYYQEdczVdm1NIbQqAqMcKC)
+    username: ENC(JUkLZ6DAw5w6m32WfcdGJw==)
+    password: ENC(1a+qXHGSQc7voRLmz3sQpU2rUHS1eJYy)
 
 eureka:
   instance:
