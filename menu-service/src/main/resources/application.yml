@@ -1,0 +1,22 @@
+server:
+  port: 30002
+
+spring:
+  application:
+    name: menu-service
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+datasource:
+  driver-class-name: org.mariadb.jdbc.Driver
+  url:
+  username:
+  password:
