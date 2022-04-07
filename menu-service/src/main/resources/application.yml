@@ -9,6 +9,17 @@ spring:
     url: ENC(VBPHDfWxQSTWg68ncO1LUu7K6fAB9MrNyobYggVUVY2cp3zvPBMtLSRh0II3Rl09/x+TuKd6Gc/sUpYwL0Zusl2YsA5AfKAY1NLHk7bhDvGS3MXInEMjO9ik1vMNYd/E)
     username: ENC(Nd+Vj8M4nZo2t0n/DS3jnQ==)
     password: ENC(BoioX8FZlGJfT+erSyzHK14m7FkKJqEO)
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
 
 eureka:
   instance:

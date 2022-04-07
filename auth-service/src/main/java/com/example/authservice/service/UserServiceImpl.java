@@ -74,6 +74,7 @@ public class UserServiceImpl implements UserService{
         return userDto;
     }
 
+    @Transactional
     @Override
     public UserDto updateUser(UserDto userDto) {
         // 변경 가능 데이터 : password, phoneNumber,name, role
@@ -93,6 +94,7 @@ public class UserServiceImpl implements UserService{
         return userDto;
     }
 
+    @Transactional
     @Override
     public void deleteUser(Long id) {
         UserDto userDto = getUser(id);
