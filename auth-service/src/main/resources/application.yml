@@ -30,7 +30,8 @@ eureka:
 
 token:
   expiration_time: 86400000
-  secret: T7hml!Z!yEVholDul1Fn6IELYqUzLYEn
+  secret: ENC(DRze1Pg8l/Uabcg/Gv3JmRyg8KkW5NhT0XRdEHnfcjkYQrEXuCcCZo5+nWqQ7Tin)
+
 
 gateway:
   ip: 192.168.0.5

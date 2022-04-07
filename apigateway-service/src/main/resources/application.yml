@@ -48,4 +48,4 @@ eureka:
 
 
 token:
-  secret: T7hml!Z!yEVholDul1Fn6IELYqUzLYEn
+  secret: ENC(JLW/vJDxl4GiIIhPVmRVqR7r2ckFS9xibV7g5QNbqzlo4XKw0U4jp2uQlboXiztK)

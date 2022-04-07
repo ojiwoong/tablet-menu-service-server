@@ -2,6 +2,7 @@ package com.example.apigatewayservice.config;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
@@ -69,6 +70,9 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
             subject = Jwts.parser().setSigningKey(env.getProperty("token.secret"))
                     .parseClaimsJws(jwt).getBody()
                     .getSubject();
+        } catch (SignatureException ex) {
+            log.error("토큰 secret 값이 잘못되었습니다.");
+            returnValue = false;
         } catch (ExpiredJwtException ex) {
             log.error("토큰이 만료된 토큰입니다.");
             returnValue = false;
