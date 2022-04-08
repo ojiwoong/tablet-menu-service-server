@@ -2,9 +2,11 @@ package com.example.orderservice.dto;
 
 import com.example.orderservice.entity.MenuEntity;
 import com.example.orderservice.entity.OrderEntity;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class OrderMenuDto extends BaseTimeDto{
     private Long id;
     private Long menuId;

@@ -1,8 +1,10 @@
 package com.example.orderservice.vo;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class RequestOrderMenu {
     private Long menuId;
     private Integer quantity;

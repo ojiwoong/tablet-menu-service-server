@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MenuDto {
+public class MenuDto extends BaseTimeDto {
     private Long id;
     private String name;
     private Integer price;

@@ -1,10 +1,13 @@
 package com.example.orderservice.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Data
+@Setter
+@Getter
 @Entity
 @Table(name = "menus")
 public class MenuEntity {
