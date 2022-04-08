@@ -77,8 +77,17 @@ public class OrderController {
     @DeleteMapping(value = "/orders/{userId}")
     public ResponseEntity deleteOrder(@PathVariable("userId") Long userId) {
 
-
+        orderService.deleteOrderByUserId(userId);
 
         return ResponseEntity.status(HttpStatus.OK).body("주문삭제 완료");
+    }
+
+    /* 특정 사용자 주문 조회 */
+    @GetMapping(value = "/orders")
+    public ResponseEntity<List<OrderDto>> getOrderByUserId(@RequestParam(name = "userId") Long userId) {
+
+        List<OrderDto> orderDtoList = orderService.getOrderByUserId(userId);
+
+        return ResponseEntity.status(HttpStatus.OK).body(orderDtoList);
     }
 }

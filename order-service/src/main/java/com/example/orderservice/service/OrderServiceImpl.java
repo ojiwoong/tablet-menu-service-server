@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderServiceImpl implements OrderService{
@@ -48,5 +49,25 @@ public class OrderServiceImpl implements OrderService{
         OrderDto createdOrderDto = new ModelMapper().map(createdOrder, OrderDto.class);
 
         return createdOrderDto;
+    }
+
+    @Override
+    public void deleteOrderByUserId(Long userId) {
+        List<OrderEntity> orderEntityList = orderRepository.findByUserId(userId);
+
+        orderRepository.deleteAll(orderEntityList);
+    }
+
+    @Override
+    public List<OrderDto>  getOrderByUserId(Long userId) {
+        List<OrderEntity> orderEntityList = orderRepository.findByUserId(userId);
+
+        List<OrderDto> orderDtoList = new ArrayList<>();
+
+        orderEntityList.forEach(orderEntity -> {
+            orderDtoList.add(new ModelMapper().map(orderEntity, OrderDto.class));
+        });
+
+        return orderDtoList;
     }
 }
