@@ -1,10 +1,14 @@
 package com.example.orderservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "order_menus")
 public class OrderMenuEntity extends BaseEntity{
@@ -18,6 +22,7 @@ public class OrderMenuEntity extends BaseEntity{
     @Column(nullable = false)
     private Integer amount;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="order_id")
     OrderEntity orderEntity;

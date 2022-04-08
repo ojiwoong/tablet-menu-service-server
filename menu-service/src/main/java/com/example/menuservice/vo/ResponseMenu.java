@@ -1,8 +1,10 @@
 package com.example.menuservice.vo;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class ResponseMenu {
     private Long id;
     private String name;

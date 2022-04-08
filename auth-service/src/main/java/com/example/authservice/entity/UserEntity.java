@@ -1,10 +1,12 @@
 package com.example.authservice.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(name="LOGIN_ID_UNIQUE", columnNames = "loginId")})
 public class UserEntity extends BaseEntity {

@@ -1,8 +1,10 @@
 package com.example.orderservice.dto;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class MenuDto {
     private Long id;
     private String name;

@@ -1,8 +1,10 @@
 package com.example.authservice.vo;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class ResponseUser {
     private Long id;
     private String loginId;
