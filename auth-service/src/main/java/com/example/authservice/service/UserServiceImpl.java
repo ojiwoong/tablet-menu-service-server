@@ -77,7 +77,7 @@ public class UserServiceImpl implements UserService{
     @Transactional
     @Override
     public UserDto updateUser(UserDto userDto) {
-        // 변경 가능 데이터 : password, phoneNumber,name, role
+        // 변경 가능 데이터 : password, phoneNumber,name
         Optional<UserEntity> optUserEntity = userRepository.findById(userDto.getId());
 
         UserEntity userEntity = optUserEntity.orElse(null);
@@ -85,7 +85,6 @@ public class UserServiceImpl implements UserService{
         userEntity.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
         userEntity.setPhoneNumber(userDto.getPhoneNumber());
         userEntity.setName(userDto.getName());
-        userEntity.setRole(userDto.getRole());
 
         userEntity = userRepository.save(userEntity);
 

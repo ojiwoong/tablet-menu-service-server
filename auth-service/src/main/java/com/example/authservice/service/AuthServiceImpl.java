@@ -29,17 +29,6 @@ public class AuthServiceImpl implements AuthService{
 
         if(userEntity == null) throw new UsernameNotFoundException(username);
 
-        return new User(userEntity.getLoginId(), userEntity.getPassword(), authorities(userEntity));
-    }
-
-    private static Collection<? extends GrantedAuthority> authorities(UserEntity userEntity) {
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        if (userEntity.isAdmin()) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-        }
-        else {
-            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-        }
-        return authorities;
+        return new User(userEntity.getLoginId(), userEntity.getPassword(), new ArrayList<>());
     }
 }

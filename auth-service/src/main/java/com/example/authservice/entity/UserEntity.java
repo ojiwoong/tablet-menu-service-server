@@ -23,11 +23,4 @@ public class UserEntity extends BaseEntity {
 
     @Column(nullable = false, length = 11)
     private String phoneNumber;
-
-    @Column(nullable = false, length = 10)
-    private String role;
-
-    public boolean isAdmin(){
-        return role.equals("ADMIN");
-    }
 }

@@ -8,5 +8,4 @@ public class ResponseUser {
     private String loginId;
     private String name;
     private String phoneNumber;
-    private String role;
 }

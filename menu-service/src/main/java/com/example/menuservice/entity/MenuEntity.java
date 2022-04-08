@@ -18,9 +18,6 @@ public class MenuEntity {
     @Column(nullable = false)
     private Integer price;
 
-    @Column(nullable = false)
-    private Integer stock;
-
     @Column
     private String description;
 
