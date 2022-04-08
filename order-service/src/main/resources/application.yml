@@ -6,9 +6,20 @@ spring:
     name: order-service
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: ENC(vgaoBl0xU2G6CfYH06B+n2UGg30r0ia30OqOxSki9qSeU4grm901Lye33LIwdjf4wVFPY4DsNDJ1m4W3ano8xlzbLC/Pi77KdsHTwtnXMgfmBPUTvw2i0dCoPP5onODN)
+    url: ENC(mjLvjEmYTIWZWEMF5jVyzU3ww1KgO8K+XVyh9ypv0kRsSfUnisrzAQdr6Jg4Tz1lFX8916ROd3Io7+VrsDar7R9prFa8oxKDxARoxcz8sPSA3J1MaknmqSqzhimhEC2lgAeDj7R+gRM=)
     username: ENC(KTTXjgr93ZO9+/maEFPLHA==)
     password: ENC(YsJ5erjgWqwERU4lTzBaZ2e9xM7vnyLy)
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
 
 eureka:
   instance:

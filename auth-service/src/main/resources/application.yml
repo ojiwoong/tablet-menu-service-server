@@ -6,12 +6,12 @@ spring:
     name: auth-service
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: ENC(+GawgltfrJwbnZajyrU7w8ywRHrdnDvVrLF7cT6hzhf5Kr9J7uiqrsuIlL4fcNh5AMJA7jCXTX7PLfKjhDCBjVmxH6l5hyxHhR/4/mHC+RYYQEdczVdm1NIbQqAqMcKC)
+    url: ENC(2B/sDqP0AN35i5ns3lapRedrPMjRWKkRskHWX50En48nYDvpfsdRQy7x11ZdRDkN5AJ7RCXuSp2kyUKOiubUJ7alx9qdNhfsivfoIhLJM8IxUjttbizFgzqAy6oOuSBUQUijuoOKaQ0=)
     username: ENC(JUkLZ6DAw5w6m32WfcdGJw==)
     password: ENC(1a+qXHGSQc7voRLmz3sQpU2rUHS1eJYy)
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     properties:
       hibernate:
         format_sql: true
@@ -29,9 +29,9 @@ eureka:
       defaultZone: http://localhost:8761/eureka
 
 token:
-  expiration_time: 86400000
+  expiration_time: ENC(rMHWZsK9obmgTK6vt1JGP8f+mcv38uCK)
   secret: ENC(DRze1Pg8l/Uabcg/Gv3JmRyg8KkW5NhT0XRdEHnfcjkYQrEXuCcCZo5+nWqQ7Tin)
 
 
 gateway:
-  ip: 192.168.0.5
+  ip: ENC(bU7cB4kA4WqZvHRTLkPjtjKLvUGF5uPn)
