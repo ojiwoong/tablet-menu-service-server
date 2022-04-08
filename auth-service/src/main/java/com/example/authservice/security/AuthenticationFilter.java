@@ -1,5 +1,6 @@
 package com.example.authservice.security;
 
+import com.example.authservice.dto.TokenDto;
 import com.example.authservice.dto.UserDto;
 import com.example.authservice.service.UserService;
 import com.example.authservice.vo.RequestLogin;
@@ -71,7 +72,8 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                         .signWith(SignatureAlgorithm.HS512, env.getProperty("token.secret").getBytes())
                         .compact();
 
-        response.addHeader("token", token);
-        response.addHeader("userId", userDetails.getId().toString());
+        TokenDto tokenDto = new TokenDto(token, userDetails.getId().toString());
+
+        response.getWriter().write(new ObjectMapper().writeValueAsString(tokenDto));
     }
 }
