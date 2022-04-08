@@ -16,6 +16,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.nio.charset.StandardCharsets;
+
 @Component
 @Slf4j
 public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<AuthorizationHeaderFilter.Config> {
@@ -67,7 +69,7 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
         String subject = null;
 
         try {
-            subject = Jwts.parser().setSigningKey(env.getProperty("token.secret"))
+            subject = Jwts.parser().setSigningKey(env.getProperty("token.secret").getBytes())
                     .parseClaimsJws(jwt).getBody()
                     .getSubject();
         } catch (SignatureException ex) {

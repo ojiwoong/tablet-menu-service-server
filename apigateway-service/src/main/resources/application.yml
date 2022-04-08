@@ -6,6 +6,18 @@ spring:
     name: gateway-service
   cloud:
     gateway:
+      # 테스트 간에 cors 모두 허용
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+        add-to-simple-url-handler-mapping: true
       routes:
         - id: auth-service
           uri: lb://AUTH-SERVICE
@@ -29,12 +41,14 @@ spring:
             - Path=/menu-service/**
           filters:
             - RewritePath=/menu-service/(?<segment>.*), /$\{segment}
+            - AuthorizationHeaderFilter
         - id: order-service
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/order-service/**
           filters:
             - RewritePath=/order-service/(?<segment>.*), /$\{segment}
+            - AuthorizationHeaderFilter
 
 eureka:
   instance:
