@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MenuServiceImpl implements MenuService{
@@ -30,5 +31,14 @@ public class MenuServiceImpl implements MenuService{
         });
 
         return menuDtoList;
+    }
+
+    @Override
+    public MenuDto getMenu(Long id) {
+        MenuEntity menuEntity = menuRepository.findById(id).orElse(null);
+
+        MenuDto menuDto = new ModelMapper().map(menuEntity, MenuDto.class);
+
+        return menuDto;
     }
 }

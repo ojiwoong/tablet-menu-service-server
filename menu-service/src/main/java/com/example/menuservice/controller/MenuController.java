@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,5 +44,18 @@ public class MenuController {
         });
 
         return ResponseEntity.status(HttpStatus.OK).body(responseMenuList);
+    }
+
+    /* 메뉴 id 검색 */
+    @GetMapping("/menus/{id}")
+    public ResponseEntity<ResponseMenu> getMenu(@PathVariable(name = "id") Long id) {
+        ModelMapper mapper = new ModelMapper();
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+
+        MenuDto menuDto = menuService.getMenu(id);
+
+        ResponseMenu responseMenu = new ModelMapper().map(menuDto, ResponseMenu.class);
+
+        return ResponseEntity.status(HttpStatus.OK).body(responseMenu);
     }
 }
