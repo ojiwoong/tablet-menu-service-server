@@ -7,6 +7,7 @@ import com.example.orderservice.dto.OrderMenuDto;
 import com.example.orderservice.entity.MenuEntity;
 import com.example.orderservice.entity.OrderMenuEntity;
 import com.example.orderservice.service.OrderService;
+import com.example.orderservice.vo.RequestOrder;
 import com.example.orderservice.vo.RequestOrderMenu;
 import com.example.orderservice.vo.ResponseOrder;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -38,13 +39,14 @@ public class OrderController {
 
     /* 주문하기 */
     @PostMapping(value = "/orders/{userId}")
-    public ResponseEntity<ResponseOrder> createOrder(@PathVariable("userId") Long userId, @RequestBody Map<String, Object> param) {
+    public ResponseEntity<ResponseOrder> createOrder(@PathVariable("userId") Long userId, @RequestBody RequestOrder requestOrder) {
         // ModelMapper 객체 생성 및 셋팅
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
         // 주문 데이터 DTO에 담기
-        OrderDto orderDto = modelMapper.map(param.get("orders"), OrderDto.class);
+        OrderDto orderDto = new OrderDto();
+        orderDto.setTotalAmount(requestOrder.getTotalAmount());
         orderDto.setUserId(userId);
 
         // 주문관리 데이터 DTO 리스트에 담기
@@ -52,7 +54,7 @@ public class OrderController {
 
         List<OrderMenuDto> orderMenuDtoList = new ArrayList<>();
         List<RequestOrderMenu> requestOrderMenuList = mapper.convertValue(
-                param.get("order_menus"),
+                requestOrder.getOrderMenuList(),
                 new TypeReference<List<RequestOrderMenu>>(){}
         );
 
@@ -70,7 +72,7 @@ public class OrderController {
 
         ResponseOrder responseOrder = modelMapper.map(createdDto, ResponseOrder.class);
 
-        return ResponseEntity.status(HttpStatus.OK).body(responseOrder);
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseOrder);
     }
     
     /* 주문삭제 */

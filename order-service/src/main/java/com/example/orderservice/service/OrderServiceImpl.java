@@ -8,6 +8,7 @@ import com.example.orderservice.jpa.OrderMenuRepository;
 import com.example.orderservice.jpa.OrderRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -60,7 +61,7 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public List<OrderDto>  getOrderByUserId(Long userId) {
-        List<OrderEntity> orderEntityList = orderRepository.findByUserId(userId);
+        List<OrderEntity> orderEntityList = orderRepository.findByUserId(userId, sortByCreatedDate());
 
         List<OrderDto> orderDtoList = new ArrayList<>();
 
@@ -69,5 +70,10 @@ public class OrderServiceImpl implements OrderService{
         });
 
         return orderDtoList;
+    }
+
+    // 주문일 내림차순 정렬
+    private Sort sortByCreatedDate() {
+        return Sort.by(Sort.Direction.DESC, "createdAt");
     }
 }
