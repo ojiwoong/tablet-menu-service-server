@@ -23,10 +23,10 @@ public class PaymentController {
     }
 
     /* 결제하기 */
-    @PostMapping(value = "/payments")
-    public ResponseEntity<PaymentDto> createPayment(@RequestBody PaymentDto paymentDto){
+    @PostMapping(value = "/payments/{userId}")
+    public ResponseEntity<PaymentDto> createPayment(@RequestBody PaymentDto paymentDto, @PathVariable(name = "userId") Long userId){
 
-        PaymentDto createdPaymentDto = paymentService.createPayment(paymentDto);
+        PaymentDto createdPaymentDto = paymentService.createPayment(paymentDto, userId);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(createdPaymentDto);
     }

@@ -17,16 +17,18 @@ import java.util.List;
 public class PaymentServiceImpl implements PaymentService {
     PaymentRepository paymentRepository;
     PaymentMethodRepository paymentMethodRepository;
+    OrderService orderService;
 
     @Autowired
-    public PaymentServiceImpl(PaymentRepository paymentRepository, PaymentMethodRepository paymentMethodRepository) {
+    public PaymentServiceImpl(PaymentRepository paymentRepository, PaymentMethodRepository paymentMethodRepository, OrderService orderService) {
         this.paymentRepository = paymentRepository;
         this.paymentMethodRepository = paymentMethodRepository;
+        this.orderService = orderService;
     }
 
     @Transactional
     @Override
-    public PaymentDto createPayment(PaymentDto paymentDto) {
+    public PaymentDto createPayment(PaymentDto paymentDto, Long userId) {
 
         PaymentEntity paymentEntity = new ModelMapper().map(paymentDto, PaymentEntity.class);
 
@@ -38,6 +40,9 @@ public class PaymentServiceImpl implements PaymentService {
 
         // 결제 save
         PaymentEntity createdPaymentEntity = paymentRepository.save(paymentEntity);
+
+        // 결제 후 해당 사용자의 주문내역 삭제
+        orderService.deleteOrderByUserId(userId);
 
         PaymentDto createdPaymentDto = new ModelMapper().map(createdPaymentEntity, PaymentDto.class);
 
