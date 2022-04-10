@@ -106,24 +106,30 @@ CREATE TABLE `payments` (
 - 로그인 페이지
 
   - 로그인 (Spring Security 사용), 로그아웃 (localStorage aceessToken 값 삭제)
+  
     ![https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EB%A1%9C%EA%B7%B8%EC%9D%B8+%EB%A1%9C%EA%B7%B8%EC%95%84%EC%9B%83.gif](https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EB%A1%9C%EA%B7%B8%EC%9D%B8+%EB%A1%9C%EA%B7%B8%EC%95%84%EC%9B%83.gif)
 
 - 메뉴 페이지
   - 메뉴 조회
+
     ![https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EB%A9%94%EB%89%B4%EC%A1%B0%ED%9A%8C.gif](https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EB%A9%94%EB%89%B4%EC%A1%B0%ED%9A%8C.gif)
     
   - 메뉴 선택 (선택한 메뉴 로컬스토리지 장바구니에 담기)
+  
     ![https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EB%A9%94%EB%89%B4+%EC%84%A0%ED%83%9D.gif](https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EB%A9%94%EB%89%B4+%EC%84%A0%ED%83%9D.gif)
 - 장바구니 페이지
 
   - 장바구니 조회. 메뉴 수량 변경, 메뉴 삭제 (삭제한 메뉴 로컬스토리지 장바구니에서 삭제)
+  
     ![https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EC%9E%A5%EB%B0%94%EA%B5%AC%EB%8B%88+%EB%A9%94%EB%89%B4+%EC%88%98%EB%9F%89%EB%B3%80%EA%B2%BD+%EC%82%AD%EC%A0%9C.gif](https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EC%9E%A5%EB%B0%94%EA%B5%AC%EB%8B%88+%EB%A9%94%EB%89%B4+%EC%88%98%EB%9F%89%EB%B3%80%EA%B2%BD+%EC%82%AD%EC%A0%9C.gif)
 
   - 주문하기 (주문 시 로컬스토리지 장바구니 전체 삭제)
+  
     ![https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EC%A3%BC%EB%AC%B8%ED%95%98%EA%B8%B0.gif](https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EC%A3%BC%EB%AC%B8%ED%95%98%EA%B8%B0.gif)
 
 - 계산서 페이지
   - 주문내역 조회, 결제하기 (결제 시 주문내역 삭제)
+  
     ![https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EC%A3%BC%EB%AC%B8+%EC%A1%B0%ED%9A%8C+%EB%B0%8F+%EA%B2%B0%EC%A0%9C%ED%95%98%EA%B8%B0.gif](https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EC%A3%BC%EB%AC%B8+%EC%A1%B0%ED%9A%8C+%EB%B0%8F+%EA%B2%B0%EC%A0%9C%ED%95%98%EA%B8%B0.gif)
   ## 도커 이미지 주소
   - React-Client : [https://hub.docker.com/repository/docker/ojiwoong/tablet-react-client](https://hub.docker.com/repository/docker/ojiwoong/tablet-react-client)
