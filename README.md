@@ -20,16 +20,16 @@ CREATE TABLE `users` (
    `password` varchar(255)   NOT NULL,
    `name` varchar(255)   NOT NULL,
    `phone_number` varchar(11)    NOT NULL,
-   `created_at`   VARCHAR(255)   NULL DEFAULT now(),
-   `updated_at`   VARCHAR(255)   NULL DEFAULT now()
+   `created_at`   datetime   NULL DEFAULT now(),
+   `updated_at`   datetime   NULL DEFAULT now()
 );
 
 CREATE TABLE `orders` (
    `id`   bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
    `user_id`  VARCHAR(255)   NOT NULL,
    `total_amount` int    NOT NULL,
-   `created_at`   VARCHAR(255)   NULL DEFAULT now(),
-   `updated_at`   VARCHAR(255)   NULL DEFAULT now()
+   `created_at`   datetime   NULL DEFAULT now(),
+   `updated_at`   datetime   NULL DEFAULT now()
 );
 
 CREATE TABLE `menus` (
@@ -48,8 +48,8 @@ CREATE TABLE `order_menus` (
    `menu_id`  bigint NOT NULL,
    `quantity` int    NOT NULL,
    `amount`   int    NOT NULL,
-   `created_at`   VARCHAR(255)   NULL DEFAULT now(),
-   `updated_at`   VARCHAR(255)   NULL DEFAULT now(),
+   `created_at`   datetime   NULL DEFAULT now(),
+   `updated_at`   datetime   NULL DEFAULT now(),
    CONSTRAINT FK_order_menus_orders FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE ON UPDATE CASCADE,
    CONSTRAINT FK_order_menus_menus FOREIGN KEY (menu_id) REFERENCES menus(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -57,16 +57,16 @@ CREATE TABLE `order_menus` (
 CREATE TABLE `payment_method` (
    `id`   int    NOT NULL PRIMARY KEY AUTO_INCREMENT,
    `name` varchar(100)   NOT NULL,
-   `created_at`   VARCHAR(255)   NULL DEFAULT now(),
-   `updated_at`   VARCHAR(255)   NULL DEFAULT now()
+   `created_at`   datetime   NULL DEFAULT now(),
+   `updated_at`   datetime   NULL DEFAULT now()
 );
 
 CREATE TABLE `payments` (
    `id`   bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
    `payment_method_id`    int    NOT NULL,
    `total_amount` int    NOT NULL,
-   `created_at`   VARCHAR(255)   NULL DEFAULT now(),
-   `updated_at`   VARCHAR(255)   NULL DEFAULT now(),
+   `created_at`   datetime   NULL DEFAULT now(),
+   `updated_at`   datetime   NULL DEFAULT now(),
    CONSTRAINT FK_payment_method_payments FOREIGN KEY (payment_method_id) REFERENCES payment_method(id)
 );
 ```
