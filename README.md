@@ -111,6 +111,7 @@ CREATE TABLE `payments` (
 - 메뉴 페이지
   - 메뉴 조회
     ![https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EB%A9%94%EB%89%B4%EC%A1%B0%ED%9A%8C.gif](https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EB%A9%94%EB%89%B4%EC%A1%B0%ED%9A%8C.gif)
+    
   - 메뉴 선택 (선택한 메뉴 로컬스토리지 장바구니에 담기)
     ![https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EB%A9%94%EB%89%B4+%EC%84%A0%ED%83%9D.gif](https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/%EB%A9%94%EB%89%B4+%EC%84%A0%ED%83%9D.gif)
 - 장바구니 페이지
