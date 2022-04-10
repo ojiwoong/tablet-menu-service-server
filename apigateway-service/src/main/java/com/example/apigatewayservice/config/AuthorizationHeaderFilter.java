@@ -38,6 +38,7 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
         return (exchange, chain) -> {
             ServerHttpRequest request = exchange.getRequest();
 
+            // Http 헤더에 AUTHORIZATION 키값이 없을 경우 에러 처리
             if(!request.getHeaders().containsKey(HttpHeaders.AUTHORIZATION)){
                 return onError(exchange, "No authorization header", HttpStatus.UNAUTHORIZED);
             }

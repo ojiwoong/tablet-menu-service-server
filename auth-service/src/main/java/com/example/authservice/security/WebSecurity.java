@@ -35,13 +35,19 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.cors().configurationSource(corsConfigurationSource())
-//        http.authorizeRequests().antMatchers("/users/**").permitAll();
-//        http.authorizeRequests().antMatchers("/login/**").permitAll();
-//        http.authorizeRequests().antMatchers("/**")
-//                .hasIpAddress(env.getProperty("gateway.ip"))
+        http.cors().configurationSource(corsConfigurationSource());
+        http.authorizeRequests().antMatchers("/**")
+                // 모든 경로(/**)를 설정한 게이트웨이 IP 에서만 접근 가능하도록 설정
+                .hasIpAddress(env.getProperty("gateway.ip"))
                 .and()
+                // 인증 필터 추가
                 .addFilter(getAuthenticationFilter());
+    }
+
+    private AuthenticationFilter getAuthenticationFilter() throws Exception {
+        AuthenticationFilter authenticationFilter = new AuthenticationFilter(authenticationManager(), userService, env);
+
+        return authenticationFilter;
     }
 
     @Bean
@@ -57,12 +63,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
-    }
-
-    private AuthenticationFilter getAuthenticationFilter() throws Exception {
-        AuthenticationFilter authenticationFilter = new AuthenticationFilter(authenticationManager(), userService, env);
-
-        return authenticationFilter;
     }
 
     @Override
