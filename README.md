@@ -135,7 +135,7 @@ CREATE TABLE `payments` (
   - React-Client : [https://hub.docker.com/r/ojiwoong/tablet-react-client](https://hub.docker.com/r/ojiwoong/tablet-react-client)
   - Service-Discovery : [https://hub.docker.com/r/ojiwoong/tablet-service-discovery](https://hub.docker.com/r/ojiwoong/tablet-service-discovery)
   - Auth-Service : [https://hub.docker.com/r/ojiwoong/tablet-auth-service](https://hub.docker.com/r/ojiwoong/tablet-auth-service)
-  - Menu-Service : [https://hub.docker.com/r/ojiwoong/tablet-menu-service](https://hub.docker.com/r/docker/ojiwoong/tablet-menu-service)
+  - Menu-Service : [https://hub.docker.com/r/ojiwoong/tablet-menu-service](https://hub.docker.com/r/ojiwoong/tablet-menu-service)
   - Order-Service : [https://hub.docker.com/r/ojiwoong/tablet-order-service](https://hub.docker.com/r/ojiwoong/tablet-order-service)
   ## docker-compose 실행 화면
   ![https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/docker-compose+%EC%8B%A4%ED%96%89+%ED%99%94%EB%A9%B4.PNG](https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/docker-compose+%EC%8B%A4%ED%96%89+%ED%99%94%EB%A9%B4.PNG)
