@@ -1,0 +1,5 @@
+FROM openjdk:11.0.12-jre
+VOLUME /tmp
+COPY ./auth-service-1.0.jar AuthService.jar
+
+ENTRYPOINT ["java", "-jar", "-Djasypt.encryptor.password=tablet1234", "AuthService.jar"]

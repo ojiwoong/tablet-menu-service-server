@@ -1,0 +1,5 @@
+FROM openjdk:11.0.12-jre
+VOLUME /tmp
+COPY ./apigateway-service-1.0.jar ApigatewayService.jar
+
+ENTRYPOINT ["java", "-jar", "-Djasypt.encryptor.password=tablet1234", "ApigatewayService.jar"]

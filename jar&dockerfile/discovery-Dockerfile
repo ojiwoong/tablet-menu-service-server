@@ -1,0 +1,5 @@
+FROM openjdk:11.0.12-jre
+VOLUME /tmp
+COPY ./service-discovery-1.0.jar ServiceDiscovery.jar
+
+ENTRYPOINT ["java", "-jar", "ServiceDiscovery.jar"]

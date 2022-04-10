@@ -1,0 +1,70 @@
+version: '3.7'
+services:
+  # service-discovery
+  service-discovery:
+    image: ojiwoong/tablet-service-discovery:1.0
+    ports:
+      - '8761:8761'
+    environment:
+      logging.file: /api-logs/service-discovery.log
+    networks:
+      my-network:
+        ipv4_address: 172.18.0.3
+  # apigateway-service
+  apigateway-service:
+    image: ojiwoong/tablet-apigateway-service:1.0
+    ports:
+      - '8000:8000'
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://service-discovery:8761/eureka/
+      logging.file: /api-logs/apigateway-service.log
+    networks:
+      my-network:
+        ipv4_address: 172.18.0.4
+  # auth-service
+  auth-service:
+    image: ojiwoong/tablet-auth-service:1.0
+    ports:
+      - '30001:30001'
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://service-discovery:8761/eureka/
+      gateway.ip: apigateway-service
+      logging.file: /api-logs/auth-service.log
+    networks:
+      my-network:
+        ipv4_address: 172.18.0.5
+  # menu-service
+  menu-service:
+    image: ojiwoong/tablet-menu-service:1.0
+    ports:
+      - '30002:30002'
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://service-discovery:8761/eureka/
+      logging.file: /api-logs/menu-service.log
+    networks:
+      my-network:
+        ipv4_address: 172.18.0.6
+  # order-service
+  order-service:
+    image: ojiwoong/tablet-order-service:1.0
+    ports:
+      - '30003:30003'
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://service-discovery:8761/eureka/
+      logging.file: /api-logs/order-service.log
+    networks:
+      my-network:
+        ipv4_address: 172.18.0.7
+  # react-client
+  react-client:
+    image: ojiwoong/tablet-react-client:1.0
+    ports:
+      - '3000:80'
+    networks:
+      my-network:
+        ipv4_address: 172.18.0.8
+
+networks:
+  my-network:
+    name: tablet-network
+    external: true
