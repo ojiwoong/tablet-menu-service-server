@@ -1,5 +1,8 @@
 # 태블릿 메뉴 서비스
 
+## React 기반 클라이언트 Git 저장소 주소 
+https://github.com/ojiwoong/tablet-menu-service-client
+
 ## ERD 설계
 
 ![https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/ERD+%EC%84%A4%EA%B3%84.PNG](https://tablet-bucket.s3.ap-northeast-2.amazonaws.com/readme_image/ERD+%EC%84%A4%EA%B3%84.PNG)
